@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_KEY = '0dc14eac03c7ff40a6e3188dcd6a0644';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
-interface WeatherData {
+export interface WeatherData {
   weather: { description: string }[];
   main: { temp: number };
   name: string;
