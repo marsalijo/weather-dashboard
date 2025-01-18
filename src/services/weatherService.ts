@@ -3,7 +3,13 @@ import axios from 'axios';
 const API_KEY = '0dc14eac03c7ff40a6e3188dcd6a0644';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const getWeatherByCity = async (city: string) => {
+interface WeatherData {
+  weather: { description: string }[];
+  main: { temp: number };
+  name: string;
+}
+
+export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
   try {
     const response = await axios.get(`${BASE_URL}/weather`, {
       params: {
